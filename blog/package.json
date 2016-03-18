@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "Serverless module dependencies",
+  "author": "me",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "node-uuid": "^1.4.7"
+  },
+  "dependencies": {
+    "dynamodb": "^0.3.6",
+    "serverless-helpers-js": "~0.1.0"
+  }
+}
