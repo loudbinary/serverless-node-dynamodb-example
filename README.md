@@ -118,8 +118,7 @@ Create [blog/post/s-templates.json](../master/blog/post/s-templates.json). Here 
         }
       }
     }
-  },
-#...
+  }
 }
 ```
 
