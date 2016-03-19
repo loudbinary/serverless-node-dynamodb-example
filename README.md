@@ -4,6 +4,8 @@ This sample application / tutorial shows how to get started quickly with the Ser
 
 ##### Video
 
+Take a look at my video for further info:
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=1lYNuR2LwMw" target="_blank"><img src="http://img.youtube.com/vi/1lYNuR2LwMw/0.jpg" 
 alt="getting started with the serverless framework" width="240" height="180" border="10" /></a>
 
