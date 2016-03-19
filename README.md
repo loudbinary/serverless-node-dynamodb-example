@@ -49,7 +49,7 @@ npm i --save dynamodb node-uuid
 
 ##### Step 5: Implement the lambda function
 
-Open `blog/post/handler.js` and enter the following code:
+Open [blog/post/handler.js](../master/blog/post/handler.js) and enter the following code:
 
 ```javascript
 'use strict';
@@ -119,57 +119,7 @@ Create [blog/post/s-templates.json](../master/blog/post/s-templates.json):
       }
     }
   },
-  "apiRequestPostReadTemplate": {
-    "application/json" : {
-      "operation": "read",
-      "tableName": "blog-posts",
-      "payload": {
-        "Key": {
-          "postId": "$input.params('postId')"
-        }
-      }
-    }
-  },
-  "apiRequestPostUpdateTemplate": {
-    "application/json" : {
-      "operation": "update",
-      "tableName": "blog-posts",
-      "payload": {
-        "Key": {
-          "postId": "$input.params('postId')"
-        },
-        "UpdateExpression": "set content = :c",
-        "ExpressionAttributeValues": {
-          ":c": "$input.json('$')"
-        }
-      }
-    }
-  },
-  "apiRequestPostDeleteTemplate": {
-    "application/json" : {
-      "operation": "delete",
-      "tableName": "blog-posts",
-      "payload": {
-        "Key": {
-          "postId": "$input.params('postId')"
-        },
-        "ConditionExpression": "postId = :p",
-        "ExpressionAttributeValues": {
-          ":p": "$input.params('postId')"
-        }
-      }
-    }
-  },
-  "apiRequestPostListTemplate": {
-    "application/json": {
-      "operation": "list",
-      "tableName": "blog-posts",
-      "payload": {}
-    }
-  },
-  "apiResponsePostCreateTemplate": "{\"postId\":\"$input.path('$').postId\"}",
-  "apiResponsePostReadTemplate": "{\"post\": {\"postId\":\"$input.path('$').Item.postId\", \"content\":{\"user\":\"$input.path('$').Item.content.user\",\"message\":\"$input.path('$').Item.content.message\"}}}",
-  "apiResponsePostListTemplate": "{\"posts\" : [#foreach($post in $input.path('$').Items){\"postId\" : \"$post.postId\",\"content\" : { \"user\":\"$post.content.user\",\"message\":\"$post.content.message\" }}#if($foreach.hasNext),#end #end ] }"
+...
 }
 ```
 
@@ -177,16 +127,7 @@ Open [blog/post/s-function.json](../master/blog/post/s-function.json):
 
 ```json
 {
-  "name": "post",
-  "customName": false,
-  "customRole": false,
-  "handler": "post/handler.handler",
-  "timeout": 6,
-  "memorySize": 1024,
-  "custom": {
-    "excludePatterns": [],
-    "envVars": []
-  },
+...
   "endpoints": [
     {
       "path": "post",
@@ -212,99 +153,6 @@ Open [blog/post/s-function.json](../master/blog/post/s-function.json):
         }
       }
     },
-    {
-      "path": "post",
-      "method": "POST",
-      "type": "AWS",
-      "authorizationType": "none",
-      "apiKeyRequired": false,
-      "requestParameters": {},
-      "requestTemplates": "$${apiRequestPostCreateTemplate}",
-      "responses": {
-        "400": {
-          "statusCode": "400"
-        },
-        "default": {
-          "statusCode": "200",
-          "responseParameters": {},
-          "responseModels": {},
-          "responseTemplates":  {
-            "application/json": "$${apiResponsePostCreateTemplate}"
-          }
-        }
-      }
-    },
-    {
-      "path": "post",
-      "method": "PUT",
-      "type": "AWS",
-      "authorizationType": "none",
-      "apiKeyRequired": false,
-      "requestParameters": {
-        "integration.request.querystring.postId": "method.request.querystring.postId"
-      },
-      "requestTemplates": "$${apiRequestPostUpdateTemplate}",
-      "responses": {
-        "400": {
-          "statusCode": "400"
-        },
-        "default": {
-          "statusCode": "200",
-          "responseParameters": {},
-          "responseModels": {},
-          "responseTemplates":  {
-            "application/json": ""
-          }
-        }
-      }
-    },
-    {
-      "path": "post",
-      "method": "DELETE",
-      "type": "AWS",
-      "authorizationType": "none",
-      "apiKeyRequired": false,
-      "requestParameters": {
-        "integration.request.querystring.postId": "method.request.querystring.postId"
-      },
-      "requestTemplates": "$${apiRequestPostDeleteTemplate}",
-      "responses": {
-        "400": {
-          "statusCode": "400"
-        },
-        "default": {
-          "statusCode": "200",
-          "responseParameters": {},
-          "responseModels": {},
-          "responseTemplates":  {
-            "application/json": ""
-          }
-        }
-      }
-    },
-    {
-      "path": "posts",
-      "method": "GET",
-      "type": "AWS",
-      "authorizationType": "none",
-      "apiKeyRequired": false,
-      "requestParameters": {},
-      "requestTemplates": "$${apiRequestPostListTemplate}",
-      "responses": {
-        "400": {
-          "statusCode": "400"
-        },
-        "default": {
-          "statusCode": "200",
-          "responseParameters": {},
-          "responseModels": {},
-          "responseTemplates": {
-            "application/json": "$${apiResponsePostListTemplate}"
-          }
-        }
-      }
-    }
-  ],
-  "events": []
+...
 }
 ```
