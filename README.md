@@ -108,13 +108,13 @@ Create [blog/post/s-templates.json](../master/blog/post/s-templates.json). Here 
 
 ```json
 {
-  "apiRequestPostCreateTemplate": {
+  "apiRequestPostReadTemplate": {
     "application/json" : {
-      "operation": "create",
+      "operation": "read",
       "tableName": "blog-posts",
       "payload": {
-        "Item": {
-          "content": "$input.json('$')"
+        "Key": {
+          "postId": "$input.params('postId')"
         }
       }
     }
