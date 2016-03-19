@@ -97,6 +97,12 @@ module.exports.handler = function(event, context) {
 };
 ```
 
+Deploy the Lambda function:
+
+```
+sls function deploy blog/post
+```
+
 ##### Step 6: Define AWS API Gateway endpoints
 
 We define API endpoints by
@@ -154,6 +160,14 @@ Complete [blog/post/s-function.json](../master/blog/post/s-function.json). Here 
 }
 ```
 
+Deploy the 5 endpoints:
+
+```
+sls dash deploy
+```
+
+Select the 5 endpoints and hit "deploy".
+
 ##### Step 7: Create a DynamoDB table
 
 Do the following:
@@ -186,3 +200,7 @@ Now, you need to give your Lambda function permission to access the newly create
 ```
 
 Replace `YOUR_REGION` e.g. with `us-east-1` or wherever you have your dynamodb table and replace `YOUR_AWS_ACCOUNT_ID` with your aws account id (which you can find here: [https://console.aws.amazon.com/billing/home?#/account](https://console.aws.amazon.com/billing/home?#/account)).
+
+##### Done
+
+Woohoo, you made it. You can tow test your serverless application, e.g., using Postman.
