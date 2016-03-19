@@ -151,5 +151,6 @@ Complete [blog/post/s-function.json](../master/blog/post/s-function.json). Here 
         }
       }
     }
+  ]
 }
 ```
