@@ -104,7 +104,7 @@ We define API endpoints by
 * Creating a template file `s-templates.json` that contains request and response mapping templates
 * Completing the `s-function.json` file which contains some lambda function configurations and API endpoint configurations
 
-Create [blog/post/s-templates.json](../master/blog/post/s-templates.json):
+Create [blog/post/s-templates.json](../master/blog/post/s-templates.json). Here is an excerpt:
 
 ```json
 {
@@ -123,11 +123,10 @@ Create [blog/post/s-templates.json](../master/blog/post/s-templates.json):
 }
 ```
 
-Open [blog/post/s-function.json](../master/blog/post/s-function.json):
+Complete [blog/post/s-function.json](../master/blog/post/s-function.json). Here is an excerpt:
 
 ```json
 {
-#...
   "endpoints": [
     {
       "path": "post",
@@ -152,7 +151,6 @@ Open [blog/post/s-function.json](../master/blog/post/s-function.json):
           }
         }
       }
-    },
-#...
+    }
 }
 ```
