@@ -206,4 +206,4 @@ Replace `YOUR_REGION` e.g. with `us-east-1` or wherever you have your dynamodb t
 
 Woohoo, you made it! Sweet!
 
-You can tow test your serverless application, e.g., using [Postman](https://www.getpostman.com/). You can import Postman extensions from your AWS API Gateway dashboard: go to [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway), click on "Stages" and select the "Export" tab.
+You can now test your serverless application, e.g., using [Postman](https://www.getpostman.com/). You can import Postman extensions from your AWS API Gateway dashboard: go to [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway), click on "Stages" and select the "Export" tab.
