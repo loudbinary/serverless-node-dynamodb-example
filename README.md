@@ -5,7 +5,6 @@ Video : [https://youtu.be/1lYNuR2LwMw](https://youtu.be/1lYNuR2LwMw)
 Prerequisites:
 * AWS account [http://aws.amazon.com/](http://aws.amazon.com/)
 * nodejs + npm [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-* 
 
 Optional:
 * Atom editor [https://atom.io/](https://atom.io/)
@@ -154,3 +153,36 @@ Complete [blog/post/s-function.json](../master/blog/post/s-function.json). Here 
   ]
 }
 ```
+
+##### Step 7: Create a DynamoDB table
+
+Do the following:
+* Create a new DynamoDB table
+* Give your Lambda function's IAM role (which has been automatically created by serverless) access rights to the new DynamoDB table)
+
+Open [https://console.aws.amazon.com/dynamodb](https://console.aws.amazon.com/dynamodb) and select the geographic region where your serverless project is deployed (e.g., us-east-1).
+
+Create a new table with name `blog-posts` and with primary partition key `postId`, as stated in the [blog/post/s-templates.json](../master/blog/post/s-templates.json) template parameter "tableName". You might want to move the table name and key name to a variable in `_meta/variables/s-variables-dev.json` so you can distinguish between different DynamoDB tables for different stages of your application (dev, test, prod, ...).
+
+You don't need to specify anything else on your DynamoDB table (except maybe for reducing provisioned capacity down to 1 from the default 5). The DynamoDB schema is flexible, so new columns will be created on-the-fly with the appropriate data type.
+
+Now, you need to give your Lambda function permission to access the newly created DynamoDB table. Go to your [IAM dashboard](https://console.aws.amazon.com/iam/home?region=us-east-1#roles) (in this case in the us-east-1 region) and select the IAM role of your serverless project. Click on the "Create Role Policy" button and enter the following policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:*"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:YOUR_REGION:YOUR_AWS_ACCOUNT_ID:table/blog-posts"
+            ]
+        }
+    ]
+}
+```
+
+Replace `YOUR_REGION` e.g. with `us-east-1` or wherever you have your dynamodb table and replace `YOUR_AWS_ACCOUNT_ID` with your aws account id (which you can find here: [https://console.aws.amazon.com/billing/home?#/account](https://console.aws.amazon.com/billing/home?#/account)).
