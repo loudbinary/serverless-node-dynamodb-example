@@ -8,6 +8,7 @@ Prerequisites:
 
 Optional:
 * Atom editor [https://atom.io/](https://atom.io/)
+* Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 
 ##### Step 1: Create an IAM admin user
 
@@ -203,4 +204,6 @@ Replace `YOUR_REGION` e.g. with `us-east-1` or wherever you have your dynamodb t
 
 ##### Done
 
-Woohoo, you made it. You can tow test your serverless application, e.g., using Postman.
+Woohoo, you made it! Sweet!
+
+You can tow test your serverless application, e.g., using [Postman](https://www.getpostman.com/). You can import Postman extensions from your AWS API Gateway dashboard: go to [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway), click on "Stages" and select the "Export" tab.
