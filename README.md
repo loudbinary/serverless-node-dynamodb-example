@@ -119,7 +119,7 @@ Create [blog/post/s-templates.json](../master/blog/post/s-templates.json):
       }
     }
   },
-//...
+#...
 }
 ```
 
@@ -127,7 +127,7 @@ Open [blog/post/s-function.json](../master/blog/post/s-function.json):
 
 ```json
 {
-//...
+#...
   "endpoints": [
     {
       "path": "post",
@@ -153,6 +153,6 @@ Open [blog/post/s-function.json](../master/blog/post/s-function.json):
         }
       }
     },
-//...
+#...
 }
 ```
