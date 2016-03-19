@@ -98,7 +98,7 @@ module.exports.handler = function(event, context) {
 };
 ```
 
-Deploy the Lambda function:
+**Deploy the Lambda function:**
 
 ```
 sls function deploy blog/post
@@ -161,7 +161,7 @@ Complete [blog/post/s-function.json](../master/blog/post/s-function.json). Here 
 }
 ```
 
-Deploy the 5 endpoints:
+**Deploy the 5 endpoints:**
 
 ```
 sls dash deploy
