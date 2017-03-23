@@ -2,7 +2,7 @@
   "apiRequestPostCreateTemplate": {
     "application/json" : {
       "operation": "create",
-      "tableName": "blog-posts",
+      "tableName": "droneup-versions",
       "payload": {
         "Item": {
           "content": "$input.json('$')"
@@ -13,10 +13,10 @@
   "apiRequestPostReadTemplate": {
     "application/json" : {
       "operation": "read",
-      "tableName": "blog-posts",
+      "tableName": "droneup-versions",
       "payload": {
         "Key": {
-          "postId": "$input.params('postId')"
+          "versionId": "$input.params('versionId')"
         }
       }
     }
@@ -24,10 +24,10 @@
   "apiRequestPostUpdateTemplate": {
     "application/json" : {
       "operation": "update",
-      "tableName": "blog-posts",
+      "tableName": "droneup-versions",
       "payload": {
         "Key": {
-          "postId": "$input.params('postId')"
+          "versionId": "$input.params('versionId')"
         },
         "UpdateExpression": "set content = :c",
         "ExpressionAttributeValues": {
@@ -39,14 +39,14 @@
   "apiRequestPostDeleteTemplate": {
     "application/json" : {
       "operation": "delete",
-      "tableName": "blog-posts",
+      "tableName": "droneup-versions",
       "payload": {
         "Key": {
-          "postId": "$input.params('postId')"
+          "versionId": "$input.params('versionId')"
         },
-        "ConditionExpression": "postId = :p",
+        "ConditionExpression": "versionId = :p",
         "ExpressionAttributeValues": {
-          ":p": "$input.params('postId')"
+          ":p": "$input.params('versionId')"
         }
       }
     }
@@ -54,11 +54,9 @@
   "apiRequestPostListTemplate": {
     "application/json": {
       "operation": "list",
-      "tableName": "blog-posts",
+      "tableName": "droneup-versions",
       "payload": {}
     }
   },
-  "apiResponsePostCreateTemplate": "{\"postId\":\"$input.path('$').postId\"}",
-  "apiResponsePostReadTemplate": "{\"post\": {\"postId\":\"$input.path('$').Item.postId\", \"content\":{\"user\":\"$input.path('$').Item.content.user\",\"message\":\"$input.path('$').Item.content.message\"}}}",
-  "apiResponsePostListTemplate": "{\"posts\" : [#foreach($post in $input.path('$').Items){\"postId\" : \"$post.postId\",\"content\" : { \"user\":\"$post.content.user\",\"message\":\"$post.content.message\" }}#if($foreach.hasNext),#end #end ] }"
+  "apiResponsePostCreateTemplate": "{\"versionId\":\"$input.path('$').versionId\"}"
 }
