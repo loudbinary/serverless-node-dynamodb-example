@@ -22,8 +22,8 @@ module.exports.handler = function(event, context) {
   switch(operation) {
     case 'create':
       var uuid = require('node-uuid');
-      event.payload.Item.postId = uuid.v1();
-      dynamo.putItem(event.payload,context.succeed({"postId":event.payload.Item.postId}));
+      event.payload.Item.versionId = uuid.v1();
+      dynamo.putItem(event.payload,context.succeed({"versionId":event.payload.Item.versionId}));
       break;
     case 'read':
       dynamo.getItem(event.payload,context.done);
