@@ -1,8 +1,8 @@
 {
-  "name": "post",
+  "name": "versions",
   "customName": false,
   "customRole": false,
-  "handler": "post/handler.handler",
+  "handler": "version/handler.handler",
   "timeout": 6,
   "memorySize": 1024,
   "custom": {
@@ -11,13 +11,13 @@
   },
   "endpoints": [
     {
-      "path": "post",
+      "path": "versions",
       "method": "GET",
       "type": "AWS",
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {
-        "integration.request.querystring.postId": "method.request.querystring.postId"
+        "integration.request.querystring.versionId": "method.request.querystring.versionId"
       },
       "requestTemplates": "$${apiRequestPostReadTemplate}",
       "responses": {
@@ -35,7 +35,7 @@
       }
     },
     {
-      "path": "post",
+      "path": "versions",
       "method": "POST",
       "type": "AWS",
       "authorizationType": "none",
@@ -57,13 +57,13 @@
       }
     },
     {
-      "path": "post",
+      "path": "versions",
       "method": "PUT",
       "type": "AWS",
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {
-        "integration.request.querystring.postId": "method.request.querystring.postId"
+        "integration.request.querystring.verionId": "method.request.querystring.verionId"
       },
       "requestTemplates": "$${apiRequestPostUpdateTemplate}",
       "responses": {
@@ -81,13 +81,13 @@
       }
     },
     {
-      "path": "post",
+      "path": "versions",
       "method": "DELETE",
       "type": "AWS",
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {
-        "integration.request.querystring.postId": "method.request.querystring.postId"
+        "integration.request.querystring.verionId": "method.request.querystring.verionId"
       },
       "requestTemplates": "$${apiRequestPostDeleteTemplate}",
       "responses": {
@@ -105,7 +105,7 @@
       }
     },
     {
-      "path": "posts",
+      "path": "versions",
       "method": "GET",
       "type": "AWS",
       "authorizationType": "none",
